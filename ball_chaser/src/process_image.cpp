@@ -37,7 +37,7 @@ void process_image_callback(const sensor_msgs::Image img)
     // Request a stop when there's no white ball seen by the camera
 
 
-    for (int i = 2; i < img.height * img.step; i++) {
+    for (int i = 2; i < img.height * img.step; i+=3) {
         if (img.data[i] == white_pixel && img.data[i-1] == white_pixel && img.data[i-2] == white_pixel) {
 
             dir = i%(img.step); 
